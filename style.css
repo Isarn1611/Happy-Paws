@@ -83,6 +83,27 @@ nav li a:hover {
     background-color: white;
     border-color: hsl(240, 100%, 75%);
 }
+#Post {
+    margin-left: 7px;
+    color: hsl(240, 100%, 75%);
+    font-size: 23px;
+    border: none;
+    background-color: hsla(240, 100%, 79%, 0.27);
+    border-radius: 30px;
+    padding: 0px 0px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s ease;
+}
+
+#Post:hover {
+    color: hsl(240, 100%, 75%);
+    background-color: hsla(240, 100%, 75%, 0);
+    border-color: hsl(240, 100%, 75%);
+    border: solid;
+    transform: scale(1.05);
+}
 
 .Hr {
     width: 96%;
@@ -154,6 +175,27 @@ p {
     color: hsl(240, 100%, 75%);
     background-color: white;
     border-color: hsl(240, 100%, 75%);
+    transform: scale(1.05);
+}
+
+#post {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: hsl(240, 100%, 75%);
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: hsla(240, 100%, 79%, 0.27);
+    border-radius: 30px;
+    border: none;
+    transition: background-color 0.3s, color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+}
+#post:hover {
+    color: hsl(240, 100%, 75%);
+    background-color: hsla(240, 100%, 75%, 0);
+    border-color: hsl(240, 100%, 75%);
+    border: solid;
     transform: scale(1.05);
 }
 

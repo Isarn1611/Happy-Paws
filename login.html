@@ -4,10 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Happy Paws</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <h1>
-        Login Now
-    </h1>
+    <!-- Inside this header is a navigation bar -->
+    <header>
+        <nav>
+            <!-- This div is for logo-->
+            <div class="logos">
+                <img id="logo" src="img/Logo.png" alt="Logo">
+                <h3>Happy Paws</h3>
+            </div>
+
+            <!-- Navigation bar with links to Home, About, and Contact pages -->
+            <div class="navbar">
+                <ul class="navi">
+                    <li id="home"><a href="index.html">Home</a></li>
+                    <li id="about"><a href="about.html">About</a></li>
+                    <li id="contact"><a href="contact.html">contact us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header> <!-- End of header section -->
+
+    <hr class="Hr">
+    
+    <main>
+        <div class="login-box">
+            <div class="login-header">
+                <span>Login</span>
+            </div>
+            <div class="input_box">
+                <input type="text" id="user" class="input-field" required>
+                <label for="user" class="label">Username</label>
+                <i class="fa-regular fa-user icon"></i>
+            </div>
+            <div class="input_box">
+                <input type="password" id="pass" class="input-field" required>
+                <label for="pass" class="label">Password</label>
+                <i class="fa-solid fa-lock icon"></i>
+            </div>
+            <div class="remember-forgot">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">remember me</label>
+                </div>
+                <div class="forgot">
+                    <a href="#">Forgot password?</a>
+                </div>
+            </div>
+            <div class="input_box">
+                <input type="submit" class="input-submit" value="Login">
+            </div>
+            <div class="register">
+                <span>Don't have an account?</span>
+                <a href="#">Create an account.</a>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
