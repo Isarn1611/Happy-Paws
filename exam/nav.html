@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Basic Navbar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* สร้าง navbar */
+    .navbar {
+      background-color: #333;   /* พื้นหลัง */
+      overflow: hidden;         /* กันล้น */
+    }
+
+    /* ลิงก์ใน navbar */
+    .navbar a {
+      float: left;              /* เรียงซ้ายไปขวา */
+      display: block;           /* ให้คลิกทั้งพื้นที่ */
+      color: white;             /* สีตัวอักษร */
+      text-align: center;
+      padding: 14px 20px;       /* ระยะห่าง */
+      text-decoration: none;    /* ตัดขีดเส้นใต้ */
+    }
+
+    /* เปลี่ยนสีตอน hover */
+    .navbar a:hover {
+      background-color: #575757;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div style="padding:20px">
+    <h1>Welcome</h1>
+    <p>นี่คือตัวอย่าง navbar เบสิค</p>
+  </div>
+
+</body>
+</html>

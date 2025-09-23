@@ -1,0 +1,286 @@
+body {
+font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+margin-left: 10px;
+margin-right: 10px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 14px;
+font-weight: bold;
+border-bottom: 1px solid rgba(0, 0, 0, 0.159);
+}
+.Logo-box {
+display: flex;
+max-width: fit-content;
+min-width: fit-content;
+align-items: center;
+}
+.logo {
+width: 40px;
+height: fit-content;
+}
+
+.nav-button {
+display: flex;
+justify-content: space-between;
+}
+ul {
+gap: 30px;
+list-style: none;
+display: flex;
+padding: 0;
+margin: 0;
+}
+li a {
+text-decoration: none;
+color: #5e5e5e;
+padding: 8px 18px;
+transition: background-color 0.4s, color 0.3s ease, transform 0.2s ease;
+border-radius: 30px;
+}
+li a:hover {
+cursor: pointer;
+color: hsl(0, 0%, 100%);
+background-color: hsl(240, 100%, 75%);
+border-radius: 30px;
+border: none;
+transform: scale(1.05);
+}
+.user {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+}
+.Post-button {
+cursor: pointer;
+padding: 8px 15px;
+border-radius: 30px;
+background-color: hsla(240, 100%, 79%, 0.27);
+color: hsl(240, 100%, 75%);
+border: 2px solid white;
+transition: background-color 0.3s, color 0.3s ease,  border-color 0.3s, transform 0.2s ease;
+}
+.Post-button:hover {
+color: hsl(240, 100%, 75%);
+background-color: white;
+border-color: hsl(240, 100%, 75%);
+transform: scale(1.05);
+}
+.Sign-box {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.sign-in {
+text-decoration: none;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center; 
+width: fit-content;
+transition: transform 0.2s ease;
+}
+.sign-in span {
+color: hsl(0, 0%, 100%);
+padding: 8px 10px;
+background-color: hsl(240, 100%, 75%);
+border-radius: 20px 0 0 20px;
+border: none;
+padding-right: 2px;
+margin-right: -1px;
+}
+.sign-in i {
+padding: 16px 5px;
+font-size: 21px;
+color: hsl(0, 0%, 100%);
+background-color: hsl(240, 100%, 75%);
+border-radius: 0 20px 20px 0;
+border: none;
+}
+.sign-in:hover {
+transform: scale(1.05);
+}
+
+.search-container {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.search-box {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 10px;
+transition: transform 0.2s ease;
+}
+.search-box input {
+background-color: hsla(240, 100%, 79%, 0.27);
+width: 90vh;
+padding: 8px 12px;
+font-size: 14px;
+border: none;
+border-radius: 20px 0 0 20px;
+outline: none;
+}
+.search-box button {
+padding: 6px 10px;
+background-color: hsla(240, 100%, 79%, 0.27);
+font-size: 18px;
+border: none;
+border-radius: 0 20px 20px 0;
+cursor: pointer;
+}
+.search-box:hover {
+transform: scale(1.02);
+}
+.section1 {
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+height: 70vh;
+padding: 100px;
+padding-right: 30px;
+}
+.left-section {
+flex: 1;
+}
+.text {
+display: flex;
+align-items: start;
+justify-content: center;
+flex-direction: column;
+}
+h2 {
+font-size: 60px;
+margin-bottom: 10px;
+}
+p {
+font-size: 22px;
+margin-bottom: 50px;
+}
+.petme-button {
+font-size: 20px;
+font-weight: bold;
+text-decoration: none;
+margin-right: 20px;
+cursor: pointer;
+color: hsl(0, 0%, 100%);
+padding: 8px 18px;
+background-color: hsl(240, 100%, 75%);
+border-radius: 30px;
+border-color: hsla(240, 100%, 79%, 0);
+border: 2px solid;
+transition: background-color 0.3s, color 0.3s ease, border-color 0.3s;
+}
+.petme-button:hover {
+color: hsl(240, 100%, 75%);
+background-color: white;
+border-color: hsl(240, 100%, 75%);
+}
+.right-section {
+display: flex;
+justify-content: center;
+align-items: center;
+flex: 1;
+}
+.background {
+width: 800px;
+}
+.post-button {
+font-size: 20px;
+font-weight: bold;
+cursor: pointer;
+padding: 8px 18px;
+border-radius: 30px;
+background-color: hsla(240, 100%, 79%, 0.27);
+color: hsl(240, 100%, 75%);
+border: 2px solid white;
+transition: background-color 0.3s, color 0.3s ease, border-color 0.3s;
+}
+.post-button:hover {
+color: hsl(240, 100%, 75%);
+background-color: white;
+border-color: hsl(240, 100%, 75%);
+}
+.create-post {            
+display: none;            
+position: fixed; top: 0; left: 0;
+width: 100%; height: 100%;
+}
+    
+#post:checked + .create-post {
+display: block;
+}
+.overlay {
+position: absolute;
+width: 100%; height: 100%;
+background: rgba(0, 0, 0, 0.5);
+}
+.post-popup {
+background: white;
+padding: 10px;
+border-radius: 12px;
+max-width: 50%;
+margin: 200px auto;
+position: relative;
+}
+.post-header {
+padding-bottom: 8px;
+border-bottom: 1px solid hsl(0, 0%, 72%);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.user-post {
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-weight: bold;
+}
+.user-in {
+display: flex;
+align-items: center;
+}
+.user-in i {
+margin: 10px;
+font-size: 30px;
+}
+.form {
+display: flex;
+}
+.form i {
+font-size: 20px;
+}
+.img-pet {
+width: 50%;
+height: 45vh;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border: none;
+background-color: hsla(240, 100%, 79%, 0.103);
+border-radius: 10px;
+margin: 10px;
+}
+.detail {
+display: block;
+margin: 20px;
+margin-top: 0;
+width: 50%;
+}
+.input-box textarea {
+background-color: hsla(240, 100%, 79%, 0.103);
+border-radius: 10px;
+border: none;
+margin-top: 25px;
+min-width: 100%;
+min-height: 80px;
+resize: none;
+overflow-wrap: break-word
+}
+

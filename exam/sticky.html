@@ -1,0 +1,26 @@
+<style>
+  body {
+    height: 2000px; /* ให้มีพื้นที่ scroll */
+  }
+
+  .header {
+    position: sticky;
+    top: 0;            /* ติดที่ขอบบน */
+    background: orange;
+    padding: 15px;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 10px;         /* ติดเมื่อถึง 50px จากขอบบน */
+    background: lightblue;
+    padding: 15px;
+    width: 200px;
+  }
+</style>
+
+<div class="header">Header (sticky, top:0)</div>
+<p>เลื่อนลงมาจะเห็น header ติดอยู่ด้านบน</p>
+
+<div class="sidebar">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia totam asperiores hic necessitatibus aliquid exercitationem alias, dolore quidem impedit. Delectus beatae aliquam odit, doloribus harum deserunt! Dolorum esse veniam fuga!Sidebar (sticky, top:50px)</div>
+<p>Sidebar จะเลื่อนลงมาก่อน แล้วค่อยหยุดที่ 50px จากขอบบน</p>
