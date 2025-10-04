@@ -109,7 +109,7 @@ function normalizeRegion(r){
     return WHITELIST.includes(v) ? v : "Empty";
 }
 
-// Load and format pet data from localStorage  (✅ รับ isDemo มาด้วย)
+// Load and format pet data from localStorage  
 function getData(){
     return loadPets().map(p => ({
         id: p.id,
@@ -119,7 +119,7 @@ function getData(){
         desc: p.desc || "",
         image: p.image || INLINE_PLACEHOLDER,
         createdAt: p.createdAt || 0,
-        isDemo: !!p.isDemo       // <<<<<< สำคัญ
+        isDemo: !!p.isDemo       // <<<<<< 
     }));
 }
 function typeClass(t){
@@ -130,7 +130,7 @@ function typeClass(t){
     return "feed-badge";
 }
 
-// Render a “page” of posts  (✅ ซ่อนปุ่มลบถ้าเป็น demo)
+// Render a “page” of posts  
 function renderChunk(){
     const wrap = $("#feed-cards");
     const end = Math.min(feedCursor + FEED_PAGE_SIZE, feedAll.length);
@@ -184,7 +184,7 @@ window.applyAnimalFilter = (type)=>{
 };
 
 // ========================
-// Delete post handler (✅ กันลบ demo)
+// Delete post handler
 // ========================
 document.addEventListener("click", (e) => {
     const btn = e.target.closest("button.ghost.danger");
@@ -273,7 +273,7 @@ document.addEventListener("click", (e) => {
             });
             savePets(list);
             close();
-            applyFilter(); // ✅ รีเฟรช feed ทันทีหลังเพิ่มโพสต์
+            applyFilter(); 
         };
         reader.onerror = ()=> alert("Can't use this file");
         reader.readAsDataURL(file);
