@@ -1,0 +1,99 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About • Happy Paws</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="color-scheme" content="light dark">
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-box" tabindex="0">
+            <img class="logo" src="../img/Logo.png" alt="Happy Paws logo">
+            <h1>Happy Paws</h1>
+        </div>
+
+        <div class="menu-box">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" tabindex="-1">
+            <label for="nav-toggle" class="hamburger" aria-label="Toggle menu" aria-controls="nav-links" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="main-nav" aria-label="Primary">
+                <ul id="nav-links" class="nav-links">
+                    <li><a href="index.html">Feed</a></li>
+                    <li><a href="shelters.html">Shelter</a></li>
+                    <li><a href="about.html" aria-current="page" style="text-decoration: underline;">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+  <main class="container about">
+
+    <!-- Hero -->
+    <section class="about-hero">
+        <h2>About Happy Paws</h2>
+        <p class="muted">
+            A prototype website for educational purposes in IT courses/projects and web application design.
+            It is not yet a real system for everyday use.
+        </p>
+    </section>
+
+    <!-- Goals -->
+    <section class="about-section">
+        <h3><i class="fa-solid fa-bullseye"></i> objective</h3>
+        <p>
+            Happy Paws was developed as a sample system.  
+            That allows users to post / search / share pet information.  
+            By focusing on learning about <br><strong> Front-End Development </strong>, <strong> UI/UX </strong> and <strong> Local Storage </strong>.
+        </p>
+    </section>
+
+    <!-- Limitations -->
+    <section class="about-section">
+        <h3><i class="fa-solid fa-triangle-exclamation"></i> Limitations</h3>
+        <ul>
+            <li>There is no login or authentication system.</li>
+            <li>No advanced security measures (e.g. encryption, server-side validation)</li>
+            <li>All data is stored in <strong>LocalStorage of the browser</strong> only</li>
+            <li>If you delete the cache/change the device, the data will be lost immediately.</li>
+        </ul>
+    </section>
+
+    <!-- Warning for use -->
+    <section class="about-section">
+        <h3><i class="fa-solid fa-circle-info"></i> Warning</h3>
+        <p>
+            Please avoid wearing <strong> Personal information </strong> Such as real phone numbers, home addresses, or sensitive information.
+            Including uploading <br><strong>Personal pictures</strong> Not related to the purpose of the system
+        </p>
+        <p class="muted small">
+            This website is only <strong> Academic example </strong> The information is not verified and should not be used for actual animal adoption or home finding.
+        </p>
+    </section>
+
+    <!-- สรุป -->
+    <section class="about-section">
+        <h3><i class="fa-solid fa-shield-dog"></i> สรุป</h3>
+        <p>
+            Happy Paws Created for learning and practice purposes only.  
+            If you really want to help animals, please contact <a href="shelters.html"> Shelter </a> <br> As specified directly on the website
+        </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+        <p>Happy Paws — Model website for education 🧡</p>
+        <p class="muted">Beta • There is no data storage system on the server.</p>
+  </footer>
+
+</body>
+</html>

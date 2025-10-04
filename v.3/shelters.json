@@ -1,0 +1,74 @@
+[
+  {
+    "id": "lanta",
+    "name": "Lanta Animal Welfare",
+    "province": "Krabi",
+    "area": "Koh lanta",
+    "about": "Help, sterilize, and treat stray dogs and cats on Koh Lanta.",
+    "phone": "075-688-681",
+    "site": "https://lantaanimalwelfare.com/",
+    "facebook": "https://www.facebook.com/LantaAnimalWelfare/",
+    "donate": "https://lantaanimalwelfare.com/donate/",
+    "image": "https://scontent.fhdy1-1.fna.fbcdn.net/v/t39.30808-6/277563112_341065871392300_3305955580381798339_n.png?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeF2f1j_Z_ZPbABT_1-kioQ-yDVuL6B-jLPINW4voH6Ms2_8CsXEoMzklnrhrhKGLzFAfk2hnfBCHeuss1LddcB4&_nc_ohc=KUASO-2qKLUQ7kNvwHYt4AD&_nc_oc=Adn5HIm0nN-anG9VAMsNHVkG7uyFbTxrVsm6h5Op4fxYcwMQldUYYpEYBSrhLFgiH9Q&_nc_zt=23&_nc_ht=scontent.fhdy1-1.fna&_nc_gid=EspBtZ74K2GbVRHHxHYaYw&oh=00_Afay-vxoSiUc4tzcRM0YKJBakZ0cS1-E-nc0zoNvBYgr4w&oe=68E016D1"
+  },
+  {
+    "id": "rescuepaws",
+    "name": "Rescue P.A.W.S.",
+    "province": "Prachuap Khiri Khan",
+    "area": "Pranburi/Hua Hin",
+    "about": "Sterilization, vaccination, treatment and animal welfare education",
+    "phone": "",
+    "site": "https://www.rescuepawsasia.org/",
+    "facebook": "",
+    "donate": "https://www.rescuepawsasia.org/donate",
+    "image": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&q=60"
+  },
+  {
+    "id": "CareforAnimals",
+    "name": "Lanna Care for Animals",
+    "province": "Chiang Mai",
+    "area": "Mae Wang",
+    "about": "Stray dog ​​rescue center, find homes, sterilize and educate the community",
+    "phone": "",
+    "site": "",
+    "facebook": "https://www.facebook.com/lannacareforanimals",
+    "donate": "https://scontent.fhdy1-1.fna.fbcdn.net/v/t39.30808-6/476163311_1017329550431194_174267053145877543_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeG2aabtPpPmEh2nLWhy8dflCcA6aftO1xwJwDpp-07XHIFZYJXtJKPLTlTvQiowik5HI_Boik-jQzUtfeUgWZyS&_nc_ohc=VygvctgWxskQ7kNvwH5xx5M&_nc_oc=AdmWaCTtXDMDvQlu47aGhIKLnoLAH3ifVM4msccV8RrGbW6sAEHOhOmR9DT9XlQHgqE&_nc_zt=23&_nc_ht=scontent.fhdy1-1.fna&_nc_gid=g0Tk_xYqDZBPx53tjCc6AQ&oh=00_AfYjYwSe1T0VJrwVL-VqO4rIz_vjTiq6VCfAX51NSClvDw&oe=68E029E9",
+    "image": "https://scontent.fhdy1-1.fna.fbcdn.net/v/t39.30808-6/326406119_3513094355584962_44063436171113001_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGcz3-5Iz4tBrDqsqGZZGdr0S3Xhj2D6P3RLdeGPYPo_Zu2Ykda5C7aP6EFJBHDeCeiBZqH8hdJ7Uu30q_imNOR&_nc_ohc=1zdK5jhp2KAQ7kNvwGBoObl&_nc_oc=Adk14g5GgE6g0oHbT83vCjwgPVAFOfpmnG2kkz7if_VS6e_BmHyxg2LJU1Vfz0ck4ek&_nc_zt=23&_nc_ht=scontent.fhdy1-1.fna&_nc_gid=UwEDtVQDM2XVzh4q1p_3DA&oh=00_AfYNePYAvHQTdUwgEXcUaXNPd1hnf0QxInd9vZxe-hu6-g&oe=68E00665"
+  },
+  {
+    "id": "santisook",
+    "name": "Santisook Dogs & Cats",
+    "province": "Chiang Mai",
+    "area": "San Sai",
+    "about": "Help stray dogs/cats, sterilize, vaccinate, treat and find homes.",
+    "phone": "",
+    "site": "https://www.santisookdogsandcats.org/",
+    "facebook": "",
+    "donate": "https://www.santisookdogsandcats.org/",
+    "image": "https://santisookdogsandcats.org/wp-content/uploads/2019/02/logo.png"
+  },
+  {
+    "id": "headrock",
+    "name": "Headrock Dogs Rescue",
+    "province": "Prachuap Khiri Khan",
+    "area": "Bang Saphan",
+    "about": "Stray dog ​​rescue center, treatment, sterilization and food project",
+    "phone": "",
+    "site": "https://headrockdogs.org/",
+    "facebook": "https://www.facebook.com/HeadrockDogs/",
+    "donate": "https://headrockdogs.org/donate/",
+    "image": "https://static.wixstatic.com/media/e862ea_fc82291c5a054bedbd4468e1f0e1d511~mv2.jpg/v1/fill/w_216,h_216,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_20201004_110216_449.jpg"
+  },
+  {
+    "id": "baanunrak",
+    "name": "Baan Unrak Animal Sanctuary",
+    "province": "Kanchanaburi",
+    "area": "Sangkhlaburi",
+    "about": "Community Animal Rescue Center, Ban Unrak (Animal Section)",
+    "phone": "",
+    "site": "https://www.baanunrak.org/",
+    "facebook": "",
+    "donate": "https://www.baanunrak.org/donate/",
+    "image": "https://static.wixstatic.com/media/f623f5_0d8075b2df5b4568989e201890473799~mv2.png/v1/fill/w_198,h_182,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Baan%20Unrak%20Logo%202019_White%20Text_Transpar.png"
+  }
+]

@@ -1,0 +1,157 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact • Happy Paws</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="color-scheme" content="light dark">
+    <script defer src="contact.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-box" tabindex="0">
+            <img class="logo" src="../img/Logo.png" alt="Happy Paws logo">
+            <h1>Happy Paws</h1>
+        </div>
+
+        <div class="menu-box">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" tabindex="-1">
+            <label for="nav-toggle" class="hamburger" aria-label="Toggle menu" aria-controls="nav-links" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="main-nav" aria-label="Primary">
+                <ul id="nav-links" class="nav-links">
+                    <li><a href="index.html">Feed</a></li>
+                    <li><a href="shelters.html">Shelter</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" aria-current="page" style="text-decoration: underline;">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container contact-page">
+        <!-- Head row: title + visitors -->
+        <section class="contact-head">
+            <div class="contact-title">
+                <h2>Contact the Happy Paws team</h2>
+                <p class="muted small">For educational purposes only — avoid including personal information !!!</p>
+            </div>
+            <div class="visit-pill" aria-live="polite" title="จำนวนเข้าชม (อุปกรณ์นี้)">
+                <i class="fa-solid fa-eye"></i> <span>Visits:</span> <strong id="visitCount">0</strong>
+            </div>
+        </section>
+
+        <!-- Equal-width grid: Carousel | Form -->
+        <section class="contact-grid">
+        <!-- Left: Carousel -->
+        <div class="contact-card">
+            <h3 class="card-title">
+                <i class="fa-solid fa-images"></i>Banner
+            </h3>
+            <div class="carousel" id="carousel" tabindex="0" aria-label="slide">
+                <div class="carousel-viewport">
+                    <article class="slide is-active">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=1200&q=60" alt="Dog">
+                        <div class="slide-caption">
+                            <h4>Help find a home for your four-legged friend.</h4>
+                            <p class="muted">Post/Search Responsibly</p>
+                        </div>
+                    </article>
+
+                    <article class="slide">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1200&q=60" alt="puppy">
+                        <div class="slide-caption">
+                            <h4>Photos stored on your device</h4>
+                            <p class="muted">Demo No server</p>
+                        </div>
+                    </article>
+
+                    <article class="slide">
+                        <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=1200&q=60" alt="cat">
+                        <div class="slide-caption">
+                            <h4>For educational purposes only</h4>
+                            <p class="muted">Avoid personal information !!!</p>
+                        </div>
+                    </article>
+                </div>
+
+                <button class="carousel-btn prev" aria-label="previous">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <button class="carousel-btn next" aria-label="Next">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <div class="carousel-dots" role="tablist" aria-label="change slide">
+                    <button class="dot is-active" role="tab" aria-selected="true"></button>
+                    <button class="dot" role="tab" aria-selected="false"></button>
+                    <button class="dot" role="tab" aria-selected="false"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Contact form -->
+        <div class="contact-card">
+            <h3 class="card-title"><i class="fa-solid fa-envelope"></i> contact form</h3>
+
+            <form id="contactForm" class="contact-form" novalidate>
+            <div class="two-col">
+                <label>Your name
+                <input type="text" name="name" required minlength="2" maxlength="80" placeholder="name...">
+                </label>
+                <label>Email
+                <input type="email" name="email" required maxlength="120" placeholder="name@example.com"
+                        pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$">
+                </label>
+            </div>
+
+            <label>section
+                <input type="text" name="subject" required minlength="3" maxlength="100" placeholder="Message topic">
+            </label>
+
+            <label>message
+                <textarea name="message" rows="6" required minlength="10" maxlength="1500"
+                        placeholder="Type a message (do not include personal information)"></textarea>
+            </label>
+
+            <div class="two-col">
+                <label>Question type
+                <select name="topic" required>
+                    <option value="" disabled selected>Choose type</option>
+                    <option>Suggestions</option>
+                    <option>Report a problem</option>
+                    <option>Contact cooperation</option>
+                    <option>other</option>
+                </select>
+                </label>
+            </div>
+
+            <div class="form-actions">
+                <button type="reset" class="ghost">Clear Information</button>
+                <button type="submit" class="primary">Send a message</button>
+            </div>
+
+            <p id="formStatus" class="form-status muted" aria-live="polite"></p>
+            </form>
+        </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            <p>Happy Paws — Educational Demo Only</p>
+            <p class="muted small">
+                No login/advanced security system • Avoid entering personal information !!!
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

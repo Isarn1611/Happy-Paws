@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Happy Paws</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script defer src="app.js"></script>
+    <meta name="color-scheme" content="light dark">
+</head>
+<body>
+    <header class="site-header">
+
+        <div class="logo-box" tabindex="0">
+            <img class="logo" src="../img/Logo.png" alt="Happy Paws logo">
+            <h1>Happy Paws</h1>
+        </div>
+
+        <div class="menu-box">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" tabindex="-1">
+            <label for="nav-toggle" class="hamburger" aria-label="Toggle menu" aria-controls="nav-links" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="main-nav" aria-label="Primary">
+                <ul id="nav-links" class="nav-links">
+                    <li><a href="index.html" style="text-decoration: underline;">Feed</a></li>
+                    <li><a href="shelters.html">Shelter</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+    <main class="container">
+        
+        <section class="animal-cards">
+
+        <h2>Find Your Buddy</h2>
+
+        <div class="card-grid">
+
+            <div class="animal-card" data-type="Dog">
+                <i class="fa-solid fa-dog"></i>
+                <span>Dog</span>
+            </div>
+
+            <div class="animal-card" data-type="Cat">
+                <i class="fa-solid fa-cat"></i>
+                <span>Cat</span>
+            </div>
+
+            <div class="animal-card" data-type="Bird">
+                <i class="fa-solid fa-dove"></i>
+                <span>Bird</span>
+            </div>
+
+            <div class="animal-card" data-type="Other">
+                <i class="fa-solid fa-paw"></i>
+                <span>Others...</span>
+            </div>
+
+            <button id="btnAddPet" type="button" class="animal-card add-card" aria-haspopup="dialog" aria-controls="postModal">
+                <i class="fa-solid fa-plus"></i>
+                <span>Post</span>
+            </button>
+
+        </div>
+
+        </section>
+
+        <!-- filter by zone -->
+        <section class="feed-filter" aria-label="filter by zone">
+            <label class="feed-filter__row">
+                <span class="feed-filter__label"><i class="fa-solid fa-map"></i>Zone/Area</span>
+                <select id="regionFilter">
+                    <option value="">All</option>
+                    <option>Bangkok</option>
+                    <option>Northern</option>
+                    <option>NorthEast</option>
+                    <option>Central</option>
+                    <option>East</option>
+                    <option>South</option>
+                </select>
+            </label>
+        </section>
+
+        <!-- Feed -->
+        <section class="feed" id="feed">
+            <div class="feed-head">
+                <h2>Feed</h2>
+                <span id="feed-count" class="muted">0 list</span>
+            </div>
+
+            <div id="feed-cards" class="feed-cards"></div>
+
+            <p id="feed-empty" class="feed-empty muted">Add Post</p>
+
+            <div class="feed-actions">
+                <button id="feed-more" class="ghost" type="button" style="display:none">Load More</button>
+            </div>
+        </section>
+
+        <!--Add Post-->
+        <div id="postModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="postTitle" hidden>
+            <div class="modal__dialog" role="document" aria-describedby="postDesc">
+                <div class="modal__head">
+                    <h3 id="postTitle">Create Post</h3>
+                    <button type="button" class="modal__close" id="postClose" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <form id="postForm" class="modal__body">
+                    <p id="postDesc" class="muted" style="margin:0 0 6px">Put buddy information and image.</p>
+
+                    <label>Name of Buddy
+                        <input type="text" name="name" required placeholder="name">
+                    </label>
+
+                    <label>Type
+                        <select name="type" required>
+                            <option value="" disabled selected>Select Type</option>
+                            <option value="Dog">Dog</option>
+                            <option value="Cat">Cat</option>
+                            <option value="Bird">Bird</option>ไ
+                            <option value="Other">Others...</option>
+                        </select>
+                    </label>
+
+                    
+                    <label>Zone/Area
+                        <select name="region" required>
+                            <option value="" disabled selected>Zone/Area</option>
+                            <option>Bangkok</option>
+                            <option>Northern</option>
+                            <option>NorthEast</option>
+                            <option>Central</option>
+                            <option>East</option>
+                            <option>South</option>
+                        </select>
+                    </label>
+
+                    <label>Information 
+                        <textarea name="desc" rows="3" placeholder="Age/ contact/ information..."></textarea>
+                    </label>
+
+                    <label>Choose image from device
+                        <input type="file" name="file" accept="image/*" required>
+                    </label>
+
+                    <div class="modal__actions">
+                        <button type="button" class="ghost" id="postCancel">Cancle</button>
+                        <button type="submit" class="primary">Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

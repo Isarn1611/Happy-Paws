@@ -1,0 +1,75 @@
+<!-- shelters.html -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shelters • Happy Paws</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="color-scheme" content="light dark">
+    <script defer src="shelters.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-box" tabindex="0">
+            <img class="logo" src="../img/Logo.png" alt="Happy Paws logo">
+            <h1>Happy Paws</h1>
+        </div>
+
+        <div class="menu-box">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" tabindex="-1">
+            <label for="nav-toggle" class="hamburger" aria-label="Toggle menu" aria-controls="nav-links" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="main-nav" aria-label="Primary">
+                <ul id="nav-links" class="nav-links">
+                    <li><a href="index.html">Feed</a></li>
+                    <li><a href="shelters.html" style="text-decoration: underline;" aria-current="page">Shelter</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" id="shelter-page">
+        <section class="shelter-head">
+            <h2>Shelters</h2>
+        </section>
+
+        <section class="shelter-filter">
+            <div class="filter-grid">
+                <label class="full">Search
+                    <input id="q" type="search" placeholder="Name">
+                </label>
+                <label class="full">city
+                    <select id="province">
+                        <option value=""> — All — </option>
+                    </select>
+                </label>
+            </div>
+        </section>
+
+        <div class="shelter-summary muted" aria-live="polite">
+            Found <strong id="s-count">0</strong> Place.
+        </div>
+
+        <section id="shelter-list" class="shelter-grid" aria-live="polite"></section>
+
+        <div class="feed-actions">
+            <button id="s-more" class="ghost" type="button" style="display:none">Load more</button>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            <p>Happy Paws — Educational Demo Only</p>
+            <p class="muted small">This website is not perfect yet</p>
+        </div>
+    </footer>
+</body>
+</html>
