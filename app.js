@@ -9,54 +9,48 @@ const $$ = (s) => Array.from(document.querySelectorAll(s));
    Load demo posts (once)
 ========================= */
 async function loadDemoPosts(){
-  // ถ้ามีข้อมูลแล้ว ไม่ต้อง seed
-  let current = [];
-  try { current = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch {}
-  if (Array.isArray(current) && current.length) return;
+    let current = [];
+    try { current = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch {}
+    if (Array.isArray(current) && current.length) return; // already has data
 
-  try {
-    const res = await fetch("posts.json", { cache: "no-cache" });
-    if (!res.ok) throw new Error(res.status);
-    const data = await res.json();
-    if (!Array.isArray(data)) throw new Error("invalid posts.json");
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    console.log("Loaded demo posts:", data.length);
-  } catch(err){
-    console.error("loadDemoPosts failed:", err);
-  }
+    try {
+        const res = await fetch("posts.json", { cache: "no-cache" });
+        if (!res.ok) throw new Error(res.status);
+        const data = await res.json();
+        if (!Array.isArray(data)) throw new Error("invalid posts.json");
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        console.log("Loaded demo posts:", data.length);
+    } catch(err){
+        console.error("loadDemoPosts failed:", err);
+    }
 }
 
 /* =========================
    Local Storage Helpers
 ========================= */
 function loadPets(){ 
-  try { 
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; 
-  } catch { 
-    return []; 
-  } 
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+    catch { return []; } 
 }
-function savePets(list){ 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); 
-}
+function savePets(list){ localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); }
 function escapeHtml(s=""){ 
-  return String(s).replace(/[&<>"']/g, m => ({
-      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-  }[m])); 
+    return String(s).replace(/[&<>"']/g, m => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"
+    }[m])); 
 }
 
 /* =========================
    Inline Placeholder Image (SVG)
 ========================= */
 const INLINE_PLACEHOLDER =
-  "data:image/svg+xml;charset=UTF-8," +
-  encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520">
-    <rect width="100%" height="100%" fill="#ddd"/>
-    <text x="50%" y="50%" font-size="28" text-anchor="middle" fill="#666" dy=".3em">No Image</text>
-  </svg>`);
+    "data:image/svg+xml;charset=UTF-8," +
+    encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520">
+        <rect width="100%" height="100%" fill="#ddd"/>
+        <text x="50%" y="50%" font-size="28" text-anchor="middle" fill="#666" dy=".3em">No Image</text>
+    </svg>`);
 
 /* =========================
-   Animal Type Cards (A11y)
+   Animal Type Cards (A11y) + toggle filter
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".animal-card:not(.add-card)");
@@ -65,18 +59,20 @@ document.addEventListener("DOMContentLoaded", () => {
         cards.forEach(c => c.classList.remove("is-active")); 
         selected?.classList.add("is-active"); 
     };
-  // Handle card selection (toggle on/off)
+
+    // Toggle on/off: click again clears the filter
     const selectType = (card) => {
         const type = card.dataset.type;
         const alreadyActive = card.classList.contains("is-active");
         if (alreadyActive) {
-            cards.forEach(c => c.classList.remove("is-active"));
-            window.applyAnimalFilter?.(""); 
+        cards.forEach(c => c.classList.remove("is-active"));
+        window.applyAnimalFilter?.("");  // clear filter -> refresh all
         } else {
-            setActive(card);
-            window.applyAnimalFilter?.(type);
+        setActive(card);
+        window.applyAnimalFilter?.(type);
         }
     };
+
     cards.forEach(card => {
         card.setAttribute("role","button");
         card.setAttribute("tabindex","0");
@@ -109,7 +105,7 @@ function normalizeRegion(r){
     return WHITELIST.includes(v) ? v : "Empty";
 }
 
-// Load and format pet data from localStorage  
+// Load and format pet data from localStorage
 function getData(){
     return loadPets().map(p => ({
         id: p.id,
@@ -119,7 +115,7 @@ function getData(){
         desc: p.desc || "",
         image: p.image || INLINE_PLACEHOLDER,
         createdAt: p.createdAt || 0,
-        isDemo: !!p.isDemo       // <<<<<< 
+        isDemo: !!p.isDemo // keep demo flag
     }));
 }
 function typeClass(t){
@@ -130,7 +126,7 @@ function typeClass(t){
     return "feed-badge";
 }
 
-// Render a “page” of posts  
+// Render a “page” of posts
 function renderChunk(){
     const wrap = $("#feed-cards");
     const end = Math.min(feedCursor + FEED_PAGE_SIZE, feedAll.length);
@@ -173,7 +169,7 @@ function renderFeed(list){
     renderChunk(); 
 }
 function applyFilter(){
-    let list = getData().sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
+    let list = getData().sort((a,b)=>(b.createdAt||0)-(a.createdAt||0)); // newest first
     if (currentType)   list = list.filter(x => x.type === currentType);
     if (currentRegion) list = list.filter(x => x.region === currentRegion);
     renderFeed(list);
@@ -184,7 +180,7 @@ window.applyAnimalFilter = (type)=>{
 };
 
 // ========================
-// Delete post handler
+// Delete post handler (block demo)
 // ========================
 document.addEventListener("click", (e) => {
     const btn = e.target.closest("button.ghost.danger");
@@ -209,43 +205,67 @@ document.addEventListener("click", (e) => {
 });
 
 /* =========================
+   Helpers for mobile posting
+========================= */
+function makeId() {
+    try { return crypto.randomUUID(); } catch {}
+    return "id-" + Date.now() + "-" + Math.random().toString(16).slice(2);
+}
+function compressImage(file, {maxW=1200, quality=0.8} = {}) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        const fr  = new FileReader();
+        fr.onerror = () => reject(new Error("read-fail"));
+        fr.onload  = () => { img.src = fr.result; };
+        img.onerror = () => reject(new Error("img-fail"));
+        img.onload  = () => {
+        const scale = Math.min(1, maxW / (img.naturalWidth || maxW) );
+        const w = Math.round((img.naturalWidth || maxW) * scale);
+        const h = Math.round((img.naturalHeight|| maxW) * scale);
+        const cvs = document.createElement("canvas");
+        cvs.width = w; cvs.height = h;
+        const ctx = cvs.getContext("2d");
+        ctx.drawImage(img, 0, 0, w, h);
+        resolve(cvs.toDataURL("image/jpeg", quality));
+        };
+        fr.readAsDataURL(file);
+    });
+}
+
+/* =========================
    Add Post Modal (Popup Form)
 ========================= */
 (()=>{
     const btnOpen  = $("#btnAddPet"),
-    modal    = $("#postModal"),
-    btnClose = $("#postClose"),
-    btnCancel= $("#postCancel"),
-    form     = $("#postForm");
+            modal    = $("#postModal"),
+            btnClose = $("#postClose"),
+            btnCancel= $("#postCancel"),
+            form     = $("#postForm");
 
     if (!btnOpen || !modal || !form) return;
 
     const open = ()=>{
-            modal.hidden = false;
-            requestAnimationFrame(()=> modal.classList.add("is-open"));
-            document.body.style.overflow = "hidden";
-            setTimeout(()=> form.querySelector("input,select,textarea")?.focus(), 60);
+        modal.hidden = false;
+        requestAnimationFrame(()=> modal.classList.add("is-open"));
+        document.body.style.overflow = "hidden";
+        setTimeout(()=> form.querySelector("input,select,textarea")?.focus(), 60);
     };
     const close = ()=>{
-            modal.classList.remove("is-open");
-            const onDone = ()=>{ 
-            modal.hidden = true; 
-            modal.removeEventListener("transitionend", onDone); 
-            };
-            modal.addEventListener("transitionend", onDone);
-            document.body.style.overflow = "";
-            form.reset();
+        modal.classList.remove("is-open");
+        const onDone = ()=>{ modal.hidden = true; modal.removeEventListener("transitionend", onDone); };
+        modal.addEventListener("transitionend", onDone);
+        document.body.style.overflow = "";
+        form.reset();
     };
 
     btnOpen.addEventListener("click", open);
     btnClose.addEventListener("click", close);
     btnCancel.addEventListener("click", close);
-
     modal.addEventListener("click", (e)=>{ if(e.target===modal) close(); });
     document.addEventListener("keydown", (e)=>{ if(!modal.hidden && e.key==="Escape") close(); });
 
-    // Form submission handler
-    form.addEventListener("submit", (e)=>{
+    // Form submission handler (mobile-safe: compress + quota guard)
+    form.addEventListener("submit", async (e)=>{
         e.preventDefault();
         const fd = new FormData(form);
         const name   = String(fd.get("name")||"").trim();
@@ -254,44 +274,60 @@ document.addEventListener("click", (e) => {
         const desc   = String(fd.get("desc")||"").trim();
         const file   = fd.get("file");
 
-        // Validate all required inputs
-        if(!name || !type || !region || !(file instanceof File) || !file.size){
-            alert("Please input name/type/region and select an image");
-            return;
+    if(!name || !type || !region || !(file instanceof File) || !file.size){
+        alert("Please input name/type/region and select an image");
+        return;
+    }
+
+    // disable buttons while processing
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const cancelBtn = form.querySelector('#postCancel');
+    submitBtn?.setAttribute("disabled", "true");
+    cancelBtn?.setAttribute("disabled", "true");
+    if (submitBtn) submitBtn.textContent = "Posting...";
+
+    try {
+        const base64 = await compressImage(file, {maxW: 1200, quality: 0.8});
+        const list = loadPets();
+        list.unshift({
+            id: makeId(),
+            name, type, region, desc,
+            image: base64,
+            createdAt: Date.now()
+        });
+
+        try {
+            savePets(list); // may throw on mobile quota
+        } catch (err) {
+            console.warn("localStorage quota, store without image", err);
+            list.shift();
+            list.unshift({ id: makeId(), name, type, region, desc, image: "", createdAt: Date.now() });
+            savePets(list);
+            alert("Image is too large for your device storage. Saved without image.");
         }
 
-        // Convert selected image to base64 string
-        const reader = new FileReader();
-        reader.onload = ()=>{
-            const base64 = reader.result;
-            const list = loadPets();
-            list.unshift({
-                id: crypto.randomUUID(),
-                name, type, region, desc,
-                image: base64,
-                createdAt: Date.now()
-            });
-            savePets(list);
-            close();
-            applyFilter(); 
-        };
-        reader.onerror = ()=> alert("Can't use this file");
-        reader.readAsDataURL(file);
-    });
+        close();
+        applyFilter();                         // refresh feed immediately
+        window.scrollTo({ top: 0, behavior: "smooth" });
 
+        } catch (err) {
+        console.error("post failed", err);
+        alert("Could not process the image on this device.");
+        } finally {
+        submitBtn?.removeAttribute("disabled");
+        cancelBtn?.removeAttribute("disabled");
+        if (submitBtn) submitBtn.textContent = "Post";
+        }
+    });
 })();
 
 /* =========================
    Boot Initialization
 ========================= */
 document.addEventListener("DOMContentLoaded", async ()=>{
-    // seed demo once
     await loadDemoPosts();
-
-    // “Load More” button for pagination
     $("#feed-more")?.addEventListener("click", renderChunk);
 
-    // Region filter dropdown
     const regionSel = $("#regionFilter");
     if (regionSel){
         regionSel.addEventListener("change", ()=>{
